@@ -34,3 +34,12 @@ Where $k_B$ is the Boltzmann constant and $\Omega$ represents the number of micr
 ### 3. Information Entropy (Shannon Entropy)
 
 In the world of data—which aligns with your expertise in scripting and web development—entropy represents the uncertainty or the amount of "surprise" in a set of variables.
+
+Claude Shannon defined information entropy as:
+
+$$H(X) = -\sum_{i=1}^{n} p(x_i)\log_2 p(x_i)$$
+
+Where $p(x_i)$ is the probability of outcome $x_i$.
+
+- Low information entropy: A variable that almost always has the same value (highly predictable).
+- High information entropy: A variable with many equally likely values (hard to predict).
