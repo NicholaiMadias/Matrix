@@ -1,6 +1,23 @@
 # Matrix
 The Matrix of Conscience
 
+## Project Organization
+
+The Matrix of Conscience is organized across three specialized subdomains, each serving a unique purpose:
+
+- **[library.matrix.amazinggracehl.org](https://library.matrix.amazinggracehl.org)** - Knowledge Repository
+  - Documentation, research materials, and archives
+
+- **[theater.matrix.amazinggracehl.org](https://theater.matrix.amazinggracehl.org)** - Performance & Presentation
+  - Multimedia presentations, performances, and interactive experiences
+
+- **[galleries.matrix.amazinggracehl.org](https://galleries.matrix.amazinggracehl.org)** - Visual Collections
+  - Visual artwork, media collections, and showcases
+
+Visit the main landing page at [matrix.amazinggracehl.org](https://matrix.amazinggracehl.org) to explore all three domains.
+
+For deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md).
+
 ## Entropy
 
 In physics, entropy is the measure of a system's thermal energy per unit temperature that is unavailable for doing useful work.
