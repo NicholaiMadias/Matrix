@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library | Matrix of Conscience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap');
+        body { font-family: 'Inter', sans-serif; background: #020617; }
+        .orbitron { font-family: 'Orbitron', sans-serif; }
+        #cosmic-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+        body > *:not(#cosmic-canvas) { position: relative; z-index: 1; }
+    </style>
+</head>
+<body class="min-h-screen text-slate-100">
+    <canvas id="cosmic-canvas"></canvas>
+
+    <header class="p-6 flex justify-between items-center border-b border-purple-900/50 bg-slate-950/90 backdrop-blur-md sticky top-0 z-50">
+        <div>
+            <h1 class="orbitron font-bold text-lg tracking-tight uppercase" style="background:linear-gradient(to right,#c084fc,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Matrix of Conscience | Library</h1>
+            <p class="text-xs uppercase tracking-widest text-purple-400 font-mono">Knowledge Repository</p>
+        </div>
+        <a href="/" class="text-slate-500 hover:text-purple-400 transition-colors text-xs uppercase tracking-widest font-bold">← Home</a>
+    </header>
+
+    <main class="max-w-4xl mx-auto p-8">
+        <div class="bg-slate-900 border border-purple-500/20 rounded-3xl p-10 shadow-2xl mb-8">
+            <h2 class="text-3xl font-bold mb-6 orbitron">Library</h2>
+            <p class="text-slate-300 mb-8">Welcome to the Library subdomain of the Matrix of Conscience. This space is dedicated to collecting, organizing, and sharing knowledge and resources.</p>
+
+            <div class="grid gap-6">
+                <div class="bg-slate-800/50 border border-purple-500/10 rounded-xl p-6">
+                    <h3 class="text-xl font-bold mb-3 orbitron text-purple-300">Documentation</h3>
+                    <p class="text-slate-400">Browse through our collection of documents, articles, and references.</p>
+                </div>
+
+                <div class="bg-slate-800/50 border border-purple-500/10 rounded-xl p-6">
+                    <h3 class="text-xl font-bold mb-3 orbitron text-purple-300">Research</h3>
+                    <p class="text-slate-400">Access research materials and scholarly resources.</p>
+                </div>
+
+                <div class="bg-slate-800/50 border border-purple-500/10 rounded-xl p-6">
+                    <h3 class="text-xl font-bold mb-3 orbitron text-purple-300">Archives</h3>
+                    <p class="text-slate-400">Explore historical records and archived materials.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex justify-center gap-4 text-sm">
+            <a href="/theater" class="text-purple-400 hover:text-purple-300 transition-colors">→ Theater</a>
+            <a href="/galleries" class="text-purple-400 hover:text-purple-300 transition-colors">→ Galleries</a>
+        </div>
+    </main>
+
+    <script>
+        const canvas = document.getElementById('cosmic-canvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        const particles = [];
+        for (let i = 0; i < 50; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                vx: (Math.random() - 0.5) * 0.5,
+                vy: (Math.random() - 0.5) * 0.5,
+                radius: Math.random() * 2 + 1
+            });
+        }
+
+        function animate() {
+            ctx.fillStyle = 'rgba(2, 6, 23, 0.1)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(192, 132, 252, 0.3)';
+                ctx.fill();
+            });
+
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
+</body>
+</html>
